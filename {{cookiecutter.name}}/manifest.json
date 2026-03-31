@@ -218,6 +218,22 @@
 			"bundle": [],
 			"exclude": [],
 			"untracked":[]
+		},
+		{
+			"name": ".kube_grp",
+			"requires": {},
+			"type": "Tool",
+			"manage": true,
+			"build": false,
+			"mode": "file_group",
+			"path": "{product_path}/{name}",
+			"include": [
+				"kubectl",
+				"minikube-linux-amd64"
+			],
+			"bundle": [],
+			"exclude": [],
+			"untracked":[]
 		}
 	]
 }
