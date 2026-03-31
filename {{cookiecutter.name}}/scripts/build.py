@@ -256,19 +256,33 @@ def release(product_path, dist_path, stage_path, release_path):
     # docker 생성
     docker_image = f"{p_name}:b{b_version}"
     print(f"docker 이미지 {docker_image} 생성")
+    # [2.6.0] @done_log: stage 로 이동하여 Dockerfile 을 읽도록 수정
+    # [2.6.1] @done_log: 어짜피 stage 에도 Dockerfile 이 있으니 cd .../stage 를 한 시점에서 ../../Dockerfile 을 할 필요 없이 그냥 Dockerfile 로 가능
     cmd = f"""
-        cd {product_path} && \
-        docker build -t {docker_image} .
+        cd {stage_path} && \
+        docker build -f Dockerfile -t {docker_image} .
         """
     subprocess.run(cmd, shell=True, check=True)
-    
+
+    # [2.7.0] @done_log: tar.gz 가 아니라 tar 로 압축되도록 변경    
     # docker 이미지 압축
     print(f"docker 이미지 압축&추출")
+    docker_image_name = f"{p_name}_b{b_version}_doc.tar"
     cmd = f"""
     cd {release_path} && \
-    docker save {p_name}:b{b_version} | pv | gzip > {p_name}_b{b_version}_doc.tar.gz 
+    docker save -o {docker_image_name} {p_name}:b{b_version} 
     """
     subprocess.run(cmd, shell=True, check=True)
+
+    # [2.7.0] @done_log: 도커 이미지 아카이빙 추가
+    print(f"docker 이미지 아카이빙")
+    cmd = f"""
+    cd {release_path} && \
+    cp {release_path / docker_image_name} {str(product_path / 'archive') + '/'}
+    """
+    subprocess.run(cmd, shell=True, check=True)
+
+
 
 
 def build(env):
