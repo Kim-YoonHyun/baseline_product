@@ -1,0 +1,11 @@
+# 예시
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+.env
+.git
+archive
+scripts
+*tar.gz

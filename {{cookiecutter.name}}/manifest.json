@@ -1,0 +1,223 @@
+{
+	"log": [
+	],
+	"hash_schema":{
+		"version":"v2",
+		"logic":"utilskit>=1.2.0"
+	},
+	"common_exclude":[
+		"__pycache__",
+		"old",
+		"log",
+		"*.tmp",
+        "*-info",
+		".gitkeep"
+	],
+	"common_untracked":[
+		"__version__.py",
+		"*_grp"
+	],
+	"component": [
+		{
+			"name": "archive",
+			"requires": {},
+			"type": "Artifact",
+			"manage": false,
+			"build": false,
+			"mode": "dir",
+			"path": "{product_path}/{name}",
+			"include": [
+				"*"
+			],
+			"bundle": [],
+			"exclude": [],
+			"untracked":[]
+		},
+		{
+			"name": "configs",
+			"requires": {},
+			"type": "Resource",
+			"manage": true,
+			"build": true,
+			"mode": "dir",
+			"path": "{product_path}/{name}",
+			"include": [
+				"*"
+			],
+			"bundle": [],
+			"exclude": [],
+			"untracked":[]
+		},
+		{
+			"name": "dist",
+			"requires": {},
+			"type": "Artifact",
+			"manage": false,
+			"build": false,
+			"mode": "dir",
+			"path": "{product_path}/{name}",
+			"include": [
+				"*"
+			],
+			"bundle": [],
+			"exclude": [],
+			"untracked":[]
+		},
+		{
+			"name": "docs",
+			"requires": {},
+			"type": "Document",
+			"manage": true,
+			"build": true,
+			"mode": "dir",
+			"path": "{product_path}/{name}",
+			"include": [
+				"*"
+			],
+			"bundle": [],
+			"exclude": [],
+			"untracked":[]
+		},
+        {
+			"name": "docs_ver",
+			"requires": {},
+			"type": "Document",
+			"manage": true,
+			"build": false,
+			"mode": "dir",
+			"path": "{product_path}/{name}",
+			"include": ["*"],
+			"bundle": [],
+			"exclude": [],
+			"untracked":["*.md"]
+		},
+		{
+			"name": "resources",
+			"requires": {},
+			"type": "Resource",
+			"manage": true,
+			"build": true,
+			"mode": "dir",
+			"path": "{product_path}/{name}",
+			"include": ["*"],
+			"bundle": [],
+			"exclude": [],
+			"untracked":[]
+		},
+		{
+			"name": "scripts",
+			"requires": {},
+			"type": "Tool",
+			"manage": true,
+			"build": false,
+			"mode": "dir",
+			"path": "{product_path}/{name}",
+			"include": ["*"],
+			"bundle": [],
+			"exclude": [],
+			"untracked":[]
+		},
+		{
+			"name": "<src/module_name>",
+			"requires": {},
+			"type": "Module",
+			"manage": true,
+			"build": true,
+			"mode": "dir",
+			"path": "{product_path}/src/{name}",
+			"include": [
+				"*"
+			],
+			"bundle": [],
+			"exclude": [],
+			"untracked":[]
+		},
+        {
+			"name": "test",
+			"requires": {},
+			"type": "Module",
+			"manage": false,
+			"build": false,
+			"mode": "dir",
+			"path": "{product_path}/src/{name}",
+			"include": [
+				"*"
+			],
+			"bundle": [],
+			"exclude": [],
+			"untracked":[]
+		},
+		{
+			"name": ".docker_grp",
+			"requires": {},
+			"type": "Manifest",
+			"manage": true,
+			"build": false,
+			"mode": "file_group",
+			"path": "{product_path}/{name}",
+			"include": [
+				".dockerignore",
+				"Dockerfile"
+			],
+			"bundle": [],
+			"exclude": [],
+			"untracked":[]
+		},
+		{
+			"name": ".spec_grp",
+			"requires": {},
+			"type": "Manifest",
+			"manage": true,
+			"build": true,
+			"mode": "file_group",
+			"path": "{product_path}/{name}",
+			"include": [
+				".cruft.json",
+				"manifest.json",
+				"pyproject.toml",
+				"README.md"
+			],
+			"bundle": [],
+			"exclude": [],
+			"untracked":[
+				"pyproject.toml",
+				"README.md"
+			]
+		},
+		{
+			"name": ".integrity_grp",
+			"requires": {},
+			"type": "Manifest",
+			"manage": true,
+			"build": true,
+			"mode": "file_group",
+			"path": "{product_path}/{name}",
+			"include": [
+				".hash_cache.json",
+				"product.lock",
+				"requirements.txt"
+			],
+			"bundle": [],
+			"exclude": [],
+			"untracked":[
+				".hash_cache.json",
+				"product.lock"
+			]
+		},
+		{
+			"name": ".aux_grp",
+			"requires": {},
+			"type": "Document",
+			"manage": false,
+			"build": false,
+			"mode": "file_group",
+			"path": "{product_path}/{name}",
+			"include": [
+				".gitignore"
+			],
+			"bundle": [],
+			"exclude": [],
+			"untracked":[]
+		}
+	]
+}

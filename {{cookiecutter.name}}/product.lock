@@ -1,0 +1,17 @@
+{
+	"user_version": "0.0",
+	"product": {
+		"name": "{{cookiecutter.name}}",
+		"version": "",
+		"resolved": {},
+		"hash":"",
+		"hash_schema_version": "",
+		"exclude": []
+	},
+	"component": [],
+	"build": {
+		"version": "",
+		"match": "",
+		"time":""
+	}
+}

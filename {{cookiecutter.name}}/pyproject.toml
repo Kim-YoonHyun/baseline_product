@@ -1,0 +1,70 @@
+[build-system]
+# 빌드 시스템 의존성 정의 (패키지를 빌드하기 위해 필요한 것들)
+requires = [
+    "setuptools>=61.0",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+# 패키지 이름 (pip install 시 사용될 이름)
+name = "{{cookiecutter.name}}"
+# 버전
+version = ""
+# 패키지 설명
+description = "{{cookiecutter.description}}"
+# 최소 지원할 파이썬 버전
+requires-python = "{{cookiecutter.python_ver}}"
+# 작성자 정보
+authors = [
+  {
+    name = "{{cookiecutter.author_name}}", 
+    email = "{{cookiecutter.email}}" 
+  }
+]
+# 설치 시 같이 설치될 의존성 목록
+dependencies = []
+# 패키지의 메타데이터
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+# 긴 설명 (README.md 사용)
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+# 조건 설정
+[project.optional-dependencies]
+plot = [
+    "matplotlib",
+    "seaborn"
+]
+all = [
+    "matplotlib",
+    "scikit-learn",
+    "numpy",
+    "pandas"
+]
+
+# 패키지 내 데이터 파일 포함 설정
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = [
+    "src",
+]
+exclude = [
+    "test/",
+    "scripts/",
+    "old/",
+    "*.tmp",
+]
+
+[tool.setuptools.package-data]
+# 특정 패키지에 포함할 정적 파일 지정 (globbing 지원)
+# {{cookiecutter.name}} = ["*.pyc", "dir1/temp.json"]
+# {{cookiecutter.name}}.module1 = ["temp.json"]

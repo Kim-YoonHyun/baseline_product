@@ -1,0 +1,8 @@
+{
+  "name": "이름 입력",
+  "type": ["system", "package"], 
+  "description": "설명 입력",
+  "python_ver": ">=3.11",
+  "author_name": "이름 입력",
+  "email":"이메일 입력"
+}
