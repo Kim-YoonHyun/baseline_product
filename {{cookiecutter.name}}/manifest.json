@@ -118,7 +118,7 @@
 			"untracked":[]
 		},
 		{
-			"name": "<src/module_name>",
+			"name": "<module_name>",
 			"requires": {},
 			"type": "Module",
 			"manage": true,
